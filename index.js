@@ -1,5 +1,5 @@
 
-
+// step=01
         const handleButton = async () => {
 
         const res = await fetch ("https://openapi.programming-hero.com/api/videos/categories") ;
@@ -19,7 +19,9 @@
 
         }
 
+          
 
+        // step=02
 
         const handleButtonData = async(buttonId) => {
 
@@ -27,25 +29,30 @@
          
        const data1 = await response.json ();
 
-
      const videosContainer =document.getElementById ('Videos-container')
     data1.data.forEach(allVideos => {
 
    const div = document.createElement ('div');
-   div.innerHTML = `<div class="card w-56 h-64 border-2 rounded-lg ">
-   <figure><img src="${allVideos.thumbnail}" alt="Shoes" /></figure>
-   <div class="card-body">
-   <div class="flex">
+   div.innerHTML = `<div class="box">
+   <img class="box-img w-56 h-40 rounded-lg" src="${allVideos?.thumbnail}" alt="" />
+<div class="box-info p-2">
 
-       <img class=" rounded-full w-8  h-8 " src="${allVideos.authors [0].profile_picture }" 
-       alt=""
-       <p class="font-semibold pl-8 ">${allVideos.title} </p> 
-       </div>
-       <p class=""> ${allVideos.authors[0].profile_name}</p> 
-       
-        
+  <div class="flex">
+
+   <img class="bg-gray-900 w-8 h-8 rounded-full" src="${allVideos?.authors[0]?.profile_picture}" alt="">
+   <h5 class="text-xl font-medium pl-2"> ${allVideos?.title} </h5>
+  </div>
+
+
+   <div class="flex"> <p class="pl-10 font-normal"> ${allVideos?.authors[0]?.profile_name} </p> 
+   
+       <img class=" w-6 h-6 " src="./images/verify.png " alt="">
    </div>
- </div> `
+  <p class="pl-10 font-normal ">${allVideos?.others?.views}<span> Views </span> </p> 
+
+ </div>
+
+ </div>`;
 
  videosContainer.appendChild (div) ;
 
@@ -54,7 +61,6 @@
       
          }
 
- 
 
         handleButton ();
-        // // handleButtonData () ;
+        // // handleButtonData () ; 

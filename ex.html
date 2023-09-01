@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-red-500">
+
+    <h5 class="font-bold">hi this an api extra </h5>
+
+ <!--  -->
+    
+
+
+
+
+
+
+<div class="bg-cyan-500  w-11/12 mx-auto grid lg:grid-cols-4 gap-4 mt-10 justify-items-center"> 
+
+
+    <div class="box">
+        <img class="box-img w-60 h-44 rounded-lg" src="${allVideos?.thumbnail}" alt="" />
+    <div class="box-info p-2">
+
+       <div class="flex">
+
+        <img class="bg-gray-900 w-8 h-8 rounded-full" src="${allVideos?.authors[0]?.profile_picture}" alt="">
+        <h5 class="text-xl font-medium pl-2"> ${allVideos?.title} </h5>
+       </div>
+
+
+        <div class="flex"> <p class="pl-10 font-normal"> ${allVideos?.authors[0]?.profile_name} </p> 
+        
+            <img class=" w-6 h-6 " src="./images/verify.png " alt="">
+        </div>
+       <p class="pl-10 font-normal ">${allVideos?.others?.views}<span>views</span> </p> 
+
+      </div>
+
+      </div>
+    
+</div>
+      
+
+
+
+    
+</body>
+</html>
+
