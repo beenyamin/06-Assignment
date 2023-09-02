@@ -32,7 +32,6 @@
 
     const showAllData = (mainData) => {
 
-
       const videoContainer = document.getElementById('Videos-container')
       const emptyError = document.getElementById('Error-container')
       emptyError.innerHTML = ""
@@ -62,51 +61,48 @@
       mainData.forEach(allVideos => {
       const fourCardData = document.createElement('div')
 
-
+        // hours and minutes
       const Seconds = `${allVideos?.others?.posted_date};`
       const sec = parseFloat(Seconds);
 
             const Hour = Math.floor(sec / 3600);
             const Minute = Math.floor((sec % 3600) / 60) ;
 
-            
+      // 4 box ----
+
+          fourCardData.innerHTML =`
+
+          <div class="box">
+        <img class=" box-img w-60 h-40 rounded-xl " src="${allVideos?.thumbnail}" alt="" />
+
+        <div class="  relative">
+        ${Minute? `<p class=" absolute right-1 bottom-2 rounded-lg bg-zinc-600 text-white px-1 ">${Hour? Hour : '' } hour ${Minute? Minute: ''} min ago</p>` : ''}
+      
+        </div>
+
+        <div class="box-info p-2">
+        <div class="flex">
+
+        <img class="bg-gray-900 w-8 h-8 rounded-full" src="${allVideos?.authors[0]?.profile_picture}" alt="">
+        <h5 class="text-xl font-medium pl-2"> ${allVideos?.title} </h5>
+        </div>
 
 
+        <div class="flex"> <p class="pl-10 font-normal"> ${allVideos?.authors[0]?.profile_name} </p> 
+        
+            <img class=" mx-2  " src=" ${allVideos?.authors[0]?.verified? `./images/00verify.png` : ''} " alt="">
+        </div>
+        <p class="pl-10 font-normal ">${allVideos?.others?.views}<span> Views </span> </p> 
+
+        </div>
+
+        </div>
+              `
+              videoContainer.appendChild(fourCardData)
 
 
-      fourCardData.innerHTML =`
-
-      <div class="box">
-    <img class=" box-img w-56 h-40 rounded-lg" src="${allVideos?.thumbnail}" alt="" />
-
-    <div class="  relative">
-    ${Minute? `<p class=" absolute right-1 bottom-2 rounded-lg bg-zinc-600 text-white px-1 ">${Hour? Hour : '' } hour ${Minute? Minute: ''} min ago</p>` : ''}
-   
-    </div>
-
-    <div class="box-info p-2">
-    <div class="flex">
-
-    <img class="bg-gray-900 w-8 h-8 rounded-full" src="${allVideos?.authors[0]?.profile_picture}" alt="">
-    <h5 class="text-xl font-medium pl-2"> ${allVideos?.title} </h5>
-    </div>
-
-
-    <div class="flex"> <p class="pl-10 font-normal"> ${allVideos?.authors[0]?.profile_name} </p> 
-    
-        <img class=" mx-2  " src=" ${allVideos?.authors[0]?.verified? `./images/00verify.png` : ''} " alt="">
-    </div>
-    <p class="pl-10 font-normal ">${allVideos?.others?.views}<span> Views </span> </p> 
-
-    </div>
-
-    </div>
-          `
-          videoContainer.appendChild(fourCardData)
-
-
-      })
-    }
+          })
+        }
 
 
             handleButton ();
