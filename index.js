@@ -73,7 +73,7 @@
           fourCardData.innerHTML =`
 
           <div class="box">
-        <img class=" box-img w-60 h-40 rounded-xl " src="${allVideos?.thumbnail}" alt="" />
+        <img class=" box-img w-64 h-40 rounded-xl " src="${allVideos?.thumbnail}" alt="" />
 
         <div class="  relative">
         ${Minute? `<p class=" absolute right-1 bottom-2 rounded-lg bg-zinc-600 text-white px-1 ">${Hour? Hour : '' } hour ${Minute? Minute: ''} min ago</p>` : ''}
